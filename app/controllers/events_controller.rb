@@ -8,8 +8,7 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
-    @event_id = @event.event_id
-    @signups = Signup.find(:all, :conditions => { :event_id => @event_id})
+    @signups = Signup.where(event_id: @event)
   end
 
   # GET /events/new
