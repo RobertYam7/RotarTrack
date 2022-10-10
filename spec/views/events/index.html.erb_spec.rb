@@ -8,6 +8,7 @@ RSpec.describe "events/index", type: :view do
         Description: "MyText",
         Location: "MyText",
         Points: 2,
+        Archived: false,
         type: nil
       ),
       Event.create!(
@@ -15,6 +16,7 @@ RSpec.describe "events/index", type: :view do
         Description: "MyText",
         Location: "MyText",
         Points: 2,
+        Archived: false,
         type: nil
       )
     ])
@@ -26,6 +28,7 @@ RSpec.describe "events/index", type: :view do
     assert_select "tr>td", text: "MyText".to_s, count: 2
     assert_select "tr>td", text: "MyText".to_s, count: 2
     assert_select "tr>td", text: 2.to_s, count: 2
+    assert_select "tr>td", text: false.to_s, count: 2
     assert_select "tr>td", text: nil.to_s, count: 2
   end
 end

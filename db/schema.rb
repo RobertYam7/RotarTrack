@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2022_09_22_034647) do
     t.time "Time"
     t.text "Location"
     t.integer "Points"
+    t.boolean "Archived", default: false
     t.bigint "type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -7,6 +7,7 @@ RSpec.describe "events/show", type: :view do
       Description: "MyText",
       Location: "MyText",
       Points: 2,
+      Archived: false,
       type: nil
     ))
   end
@@ -17,6 +18,7 @@ RSpec.describe "events/show", type: :view do
     expect(rendered).to match(/MyText/)
     expect(rendered).to match(/MyText/)
     expect(rendered).to match(/2/)
+    expect(rendered).to match(/false/)
     expect(rendered).to match(//)
   end
 end

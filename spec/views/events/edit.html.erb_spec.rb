@@ -7,6 +7,7 @@ RSpec.describe "events/edit", type: :view do
       Description: "MyText",
       Location: "MyText",
       Points: 1,
+      Archived: false,
       type: nil
     ))
   end
@@ -23,6 +24,8 @@ RSpec.describe "events/edit", type: :view do
       assert_select "textarea[name=?]", "event[Location]"
 
       assert_select "input[name=?]", "event[Points]"
+
+      assert_select "input[name=?]", "event[Archived]"
 
       assert_select "input[name=?]", "event[type_id]"
     end

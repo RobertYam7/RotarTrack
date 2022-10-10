@@ -40,8 +40,10 @@
   </thead>
 
   <tbody>
+    <!-- an if statement has been added below. Its functions is to make skip 'deleted events' from showing -->
     <% @events.each do |event| %>
       <tr>
+        <% next if event.Archived == true %>
         <td><%= link_to event.Title, event %></td>
         <!-- <td><%= event.Description %></td> -->
         <td><%= event.Date %></td>
