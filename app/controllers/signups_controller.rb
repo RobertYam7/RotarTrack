@@ -22,10 +22,13 @@ class SignupsController < ApplicationController
   # POST /signups or /signups.json
   def create
     @signup = Signup.new(signup_params)
-    @eventTime = signup_params[:Time]
-    @cutoffTime = Time.now + 43200
+    signup.event_id.Time = @signup.event_id.Time
+    if @signup.event_id.Time != cutoffTime
+      format.html { render :new, status: :unprocessable_entity, notice: "Signups not allowed after 12 hours before event start time" }
+      format.json { render json: @signup.errors, status: :unprocessable_entity }
+    end
     respond_to do |format|
-      if (@signup.save && (@cutoffTime && @cutoffTime > @eventTime))
+      if @signup.save
         format.html { redirect_to signup_url(@signup), notice: "Signup was successfully created." }
         format.json { render :show, status: :created, location: @signup }
       else
