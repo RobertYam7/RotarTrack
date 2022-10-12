@@ -1,2 +1,2 @@
-release: rails db:drop DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+release: rails db:create db:migrate RAILS_ENV=test
 
