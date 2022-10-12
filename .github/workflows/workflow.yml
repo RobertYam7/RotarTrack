@@ -40,7 +40,6 @@ jobs:
           cmd: install
       - name: Run tests
         run: bundler exec rspec .
-      - name: Run brakeman
       - name: Run rubocop
         run: bundler exec rubocop --force-exclusion vendor/*/** --out rubocop.txt
       - name: Upload coverage results
